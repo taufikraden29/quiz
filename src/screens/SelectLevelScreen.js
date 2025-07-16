@@ -13,7 +13,7 @@ const SelectLevelScreen = ({ navigation }) => {
         <View style={styles.container}>
             <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
             <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center', marginBottom: 20 }}>
-                <TouchableOpacity onPress={() => NavigationContainer.navigate.pop()}>
+                <TouchableOpacity onPress={() => navigation.navigate.pop()}>
                     <Icon name="circle-chevron-left" size={18} color="#212121" />
                 </TouchableOpacity>
                 <Text style={[GlobalStyle.textBold, { fontSize: 18 }]}>Pilih Level!</Text>
