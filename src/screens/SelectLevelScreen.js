@@ -3,23 +3,11 @@ import React from 'react'
 import { FlatGrid } from 'react-native-super-grid';
 import GlobalStyle from '../styles/GlobalStyle';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-
+import quizLevel1 from '../data/QuizLevel1';
+import quizLevel2 from '../data/QuizLevel2';
 
 
 const SelectLevelScreen = ({ navigation }) => {
-
-    const quizLevel1 = [
-        { pertanyaan: "1+1 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 1 },
-        { pertanyaan: "5+6 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 5 },
-        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 }
-    ]
-
-    const quizLevel2 = [
-        { pertanyaan: "100+1100 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 1 },
-        { pertanyaan: "5+6 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 5 },
-        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 },
-        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 }
-    ]
 
     const level = [{ level: 1, soal: quizLevel1 }, { level: 2, soal: quizLevel2 }];
 
