@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 
 
 
-const SelectLevelScreen = () => {
+const SelectLevelScreen = ({ navigation }) => {
     const level = [1, 2, 3, 4, 5, 6, 7, 8]
 
     return (
@@ -22,7 +22,7 @@ const SelectLevelScreen = () => {
                 itemDimension={70}
                 data={level}
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={[styles.cardQuiz]}>
+                    <TouchableOpacity style={[styles.cardQuiz]} onPress={() => navigation.navigate('QuizScreen')}>
                         <Text style={[GlobalStyle.textBold, { color: 'white', fontSize: 18 }]}>{item}</Text>
                     </TouchableOpacity>
                 )}

@@ -18,7 +18,7 @@ export default function App() {
       <Stack.Navigator initialRouteName='SplashScreen' screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home Screen" component={HomeScreen} />
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Quiz Screen" component={QuizScreen} />
+        <Stack.Screen name="QuizScreen" component={QuizScreen} />
         <Stack.Screen name="SelectLevelScreen" component={SelectLevelScreen} />
       </Stack.Navigator>
     </NavigationContainer>
