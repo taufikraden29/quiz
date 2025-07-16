@@ -1,19 +1,17 @@
 import { Alert, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { FlatGrid } from 'react-native-super-grid';
-import GlobalStyle from '../utils/GlobalStyle';
+import GlobalStyle from '../styles/GlobalStyle';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import Modal from 'react-native-modal';
+import ButtonPrimary from '../components/ButtonPrimary';
+import { colors } from '../constants';
 
 
+const QuizScreen = ({ navigation, route }) => {
 
-const QuizScreen = ({ navigation }) => {
-
-    const quiz = [
-        { pertanyaan: "1+1 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 1 },
-        { pertanyaan: "5+6 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 5 },
-        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 }
-    ]
+    const { soal } = route.params;
+    const quiz = soal;
 
     const [pertanyaanSaatIni, setPertanyaanSaatIni] = useState(0);
     const [skor, setSkor] = useState(0);
@@ -21,7 +19,7 @@ const QuizScreen = ({ navigation }) => {
 
     function cekJawaban(item) {
         if (item == quiz[pertanyaanSaatIni].jawabanbenar) {
-            setSkor(skor + 1)
+            setSkor(skor + 10)
         }
 
         if (pertanyaanSaatIni === quiz.length - 1) {
@@ -64,14 +62,13 @@ const QuizScreen = ({ navigation }) => {
                     <Icon name='circle-check' size={40} color={'white'} solid />
                     <Text style={[GlobalStyle.textBold, { fontSize: 22, color: 'white', marginTop: 15 }]}>Mantap! Cairr Cairr</Text>
                     <Text style={[GlobalStyle.textBold, { fontSize: 14, color: 'white', }]}>Skor Kamu</Text>
-                    <Text style={[GlobalStyle.textBold, { fontSize: 50, color: 'white', }]}>{skor}</Text>
+                    <Text style={[GlobalStyle.textBold, { fontSize: 50, color: colors.black, }]}>{skor}</Text>
                     <View style={{ width: '100%', justifyContent: 'center', marginTop: 20 }}>
-                        <TouchableOpacity onPress={() => { setGameBerakhir(false), setPertanyaanSaatIni(0), setSkor(0) }} style={{ backgroundColor: '#212121', paddingVertical: 8, borderRadius: 8 }}>
-                            <Text style={[GlobalStyle.textBold, { fontSize: 14, color: 'white', textAlign: 'center' }]}>Restart Quiz</Text>
-                        </TouchableOpacity>
+                        <ButtonPrimary title={"Restart Quiz"} onPress={() => { setGameBerakhir(false), setPertanyaanSaatIni(0), setSkor(0) }}></ButtonPrimary>
                         <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginVertical: 10 }}>
-                            <Text style={[GlobalStyle.textBold, { fontSize: 14, color: 'white', textAlign: 'center' }]}>Kembali</Text>
+                            <Text style={[GlobalStyle.textBold, { fontSize: 14, color: colors.black, textAlign: 'center' }]}>Kembali</Text>
                         </TouchableOpacity>
+
                     </View>
                 </View>
             </Modal>

@@ -2,7 +2,7 @@ import { Image, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { Grid } from 'react-native-animated-spinkit'
 import { StackActions } from '@react-navigation/native'
-import GlobalStyle from '../utils/GlobalStyle'
+import GlobalStyle from '../styles/GlobalStyle'
 
 const SplashScreen = ({ navigation }) => {
 

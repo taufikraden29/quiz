@@ -1,6 +1,7 @@
 import { StatusBar, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import GlobalStyle from '../utils/GlobalStyle'
+import GlobalStyle from '../styles/GlobalStyle'
+import ButtonPrimary from '../components/ButtonPrimary'
 
 const HomeScreen = ({ navigation }) => {
     return (
@@ -8,9 +9,8 @@ const HomeScreen = ({ navigation }) => {
             <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
             <Image source={require('../images/quiz.png')} style={{ height: 200, resizeMode: 'contain', }} />
             <Text style={[GlobalStyle.textBold, { fontSize: 22, color: '#212121', fontWeight: '600' }]}>QUIZ PARAMPA</Text>
-            <TouchableOpacity style={styles.buttonStart} onPress={() => navigation.navigate('SelectLevelScreen')}>
-                <Text style={[GlobalStyle.textBold, { color: 'white' }]}>Mulai Quiz!</Text>
-            </TouchableOpacity>
+
+            <ButtonPrimary title={"Mulai Quiz!"} onPress={() => navigation.navigate('SelectLevelScreen')} />
         </View>
     )
 }

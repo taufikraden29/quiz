@@ -1,13 +1,27 @@
 import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { FlatGrid } from 'react-native-super-grid';
-import GlobalStyle from '../utils/GlobalStyle';
+import GlobalStyle from '../styles/GlobalStyle';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
 
 
 const SelectLevelScreen = ({ navigation }) => {
-    const level = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    const quizLevel1 = [
+        { pertanyaan: "1+1 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 1 },
+        { pertanyaan: "5+6 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 5 },
+        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 }
+    ]
+
+    const quizLevel2 = [
+        { pertanyaan: "100+1100 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 1 },
+        { pertanyaan: "5+6 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 5 },
+        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 },
+        { pertanyaan: "1+2 =", jawaban: ['1', "5", '10', '20'], jawabanbenar: 20 }
+    ]
+
+    const level = [{ level: 1, soal: quizLevel1 }, { level: 2, soal: quizLevel2 }];
 
     return (
         <View style={styles.container}>
@@ -22,8 +36,8 @@ const SelectLevelScreen = ({ navigation }) => {
                 itemDimension={70}
                 data={level}
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={[styles.cardQuiz]} onPress={() => navigation.navigate('QuizScreen')}>
-                        <Text style={[GlobalStyle.textBold, { color: 'white', fontSize: 18 }]}>{item}</Text>
+                    <TouchableOpacity style={[styles.cardQuiz]} onPress={() => navigation.navigate('QuizScreen', { soal: item.soal })}>
+                        <Text style={[GlobalStyle.textBold, { color: 'white', fontSize: 18 }]}>{item.level}</Text>
                     </TouchableOpacity>
                 )}
             />
